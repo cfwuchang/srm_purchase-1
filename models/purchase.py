@@ -44,10 +44,10 @@ class PurchaseOrder(models.Model):
     #         PurchaseOrderDao(self.env).update(self.slug, {'state': 'cancel'})
 
     
-    def button_unlock(self):
-        super(PurchaseOrder, self).button_unlock()
-        if self.slug and self._is_use_platform():
-            PurchaseOrderDao(self.env).update(self.slug, {'state': 'purchase'})
+#     def button_unlock(self):
+#         super(PurchaseOrder, self).button_unlock()
+#         if self.slug and self._is_use_platform():
+#             PurchaseOrderDao(self.env).update(self.slug, {'state': 'purchase'})
 
     
     def action_submit(self):
