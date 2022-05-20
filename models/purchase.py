@@ -94,8 +94,8 @@ class PurchaseOrder(models.Model):
             if line.product_qty != line.qty_received:
                 raise exceptions.ValidationError('未发货完毕不能锁定该采购单！')
         res = super(PurchaseOrder, self).button_done()
-        if self.slug and self._is_use_platform():
-            PurchaseOrderDao(self.env).update(self.slug, {'state': 'done'})
+#         if self.slug and self._is_use_platform():
+#             PurchaseOrderDao(self.env).update(self.slug, {'state': 'done'})
         return res
 
     
@@ -150,8 +150,8 @@ class PurchaseOrder(models.Model):
     def action_accept(self):
         self.ensure_one()
         self.write({'state': 'purchase'})
-        if self.slug and self._is_use_platform():
-            PurchaseOrderDao(self.env).update(self.slug, {'state': 'purchase'})
+#         if self.slug and self._is_use_platform():
+#             PurchaseOrderDao(self.env).update(self.slug, {'state': 'purchase'})
         return True
 
     
